@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4d56b17f-c692-45e8-b181-3b4d68f266da" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/scala_sdk_3_4_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/scala_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2024may_cmpt300f_project2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/part1.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/src/DaysInMonth.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part1/test/TestDaysInMonth.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/Directions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/part2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/Actor.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/AppWindow.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/Circle.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/Field.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/Impact.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/LineSegment.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/Point.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/Stopwatch.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/Vector.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/src/main.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/test/TestField.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/part2/test/TestPointVector.scala" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2gfGEN9sMt1PC16joMJl2mwacxy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.DaysInMonth.executor": "Run",
+    "Application.main.executor": "Run",
+    "Application.main2.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "true",
+    "JUnit.Part 1: TestDaysInMonth.executor": "Run",
+    "JUnit.Part 2: TestField.executor": "Run",
+    "JUnit.Part 2: TestPointVector.executor": "Run",
+    "JUnit.TestDaysInMonth.executor": "Run",
+    "JUnit.TestField.executor": "Run",
+    "JUnit.TestPointVector.executor": "Run",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "jdk.selected.JAVA_MODULE": "openjdk-22",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/kathy/IdeaProjects/2020may_cmpt300f_project2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/part2" />
+      <recent name="$PROJECT_DIR$/part2/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.Part 2: TestPointVector">
+    <configuration name="Part 1: DaysInMonth program" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="DaysInMonth" />
+      <module name="part1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
+      <module name="part2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Part 1: TestDaysInMonth" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="part1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestDaysInMonth" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Part 2: TestField" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="part2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestField" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Part 2: TestPointVector" type="JUnit" factoryName="JUnit" temporary="true">
+      <module name="part2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestPointVector" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.main" />
+      <item itemvalue="Application.Part 1: DaysInMonth program" />
+      <item itemvalue="JUnit.Part 2: TestField" />
+      <item itemvalue="JUnit.Part 2: TestPointVector" />
+      <item itemvalue="JUnit.Part 1: TestDaysInMonth" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.Part 2: TestPointVector" />
+        <item itemvalue="Application.main" />
+        <item itemvalue="JUnit.Part 2: TestField" />
+        <item itemvalue="JUnit.Part 1: TestDaysInMonth" />
+        <item itemvalue="Application.Part 1: DaysInMonth program" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ScalaProjectSettings">
+    <option name="scala3DisclaimerShown" value="true" />
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4d56b17f-c692-45e8-b181-3b4d68f266da" name="Changes" comment="" />
+      <created>1716081107457</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1716081107457</updated>
+      <workItem from="1716081108473" duration="8670000" />
+      <workItem from="1716421607982" duration="74000" />
+      <workItem from="1716421686708" duration="42735000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
