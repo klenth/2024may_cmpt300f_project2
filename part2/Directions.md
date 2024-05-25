@@ -7,7 +7,7 @@ in some pieces in a program that simulates balls bouncing around in a field with
 
 Most of the code is already written for you; you'll just need to fill in some of the pieces.
 
-# Step 0: fill in the `Point` and `Vector` case classes
+# Step 1: fill in the `Point` and `Vector` case classes
 The code in `part2` includes two very important case classes, `Point` and `Vector`, that are used extensively to
 simulate the motion of the balls within the field. The classes are already defined, but you will need to add some
 methods to both to make them fully functional.
