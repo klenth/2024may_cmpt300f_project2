@@ -25,7 +25,7 @@
 //     ("January" for 1, "February" for 2, etc.) in an Option if the month number
 //     is 1 to 12, or an empty Option if it's not. (So return either Some(...) or
 //     None.)
-// 
+//
 //   2) Similarly, fill in the days() method, that returns the number of days in
 //     the given month and year. (The year is necessary because February changes
 //     depending on whether it's a leap year!) You can use the provided
@@ -54,27 +54,14 @@ import java.util.*;
 
 object DaysInMonth:
 
-  private val MONTH_NAMES = Seq(
-    "January", "February", "March", "April",
-    "May", "June", "July", "August",
-    "September", "October", "November", "December",
-  )
-
   def isLeapYear(year: Int): Boolean =
     (year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)
 
   def monthName(month: Int): Option[String] =
-    if (0 < month && month <= 12)
-      Some(MONTH_NAMES(month - 1))
-    else
-      None
+    None  // Replace with your code
 
-  def days(month: Int, year: Int): Option[Int] = (month, isLeapYear(year)) match
-    case (2, false)   => Some(28)
-    case (2, true)    => Some(29)
-    case (4 | 6 | 9 | 11, _) => Some(30)
-    case (1 | 3 | 5 | 7 | 8 | 10 | 12, _) => Some(31)
-    case _            => None
+  def days(month: Int, year: Int): Option[Int] =
+    None  // Replace with your code
 
   def main(args: Array[String]): Unit =
     val in = new Scanner(System.in)

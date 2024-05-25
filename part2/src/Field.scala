@@ -4,12 +4,6 @@ import javax.swing.*
 import scala.compiletime.uninitialized
 import Actor.*
 
-import java.awt.image.BufferedImage
-
-// Delete this
-import javax.imageio.ImageIO
-import java.io.File
-
 import scala.annotation.tailrec
 
 /** The field that the balls and obstacles are displayed on. All the animation code is here. */
@@ -18,7 +12,7 @@ class Field(width: Int, height: Int) extends JComponent:
   // How long to wait between rendering frames (ms)
   // (20 ms gives about 50 fps)
   // smaller value means smoother animation but also more CPU used!
-  private val frameSleep: Long = 50
+  private val frameSleep: Long = 20
 
   private val random = Random()
   private val stopwatch = Stopwatch()
@@ -26,17 +20,14 @@ class Field(width: Int, height: Int) extends JComponent:
   // Adjust this to change what actors will be displayed
   // (A Seq is just an immutable Array - more common to use these than Arrays in Scala)
   private var actors: Seq[Actor] =
-    (1 to 3).map(_ => randomBumper)       // change the number after "to" to adjust how many bumpers are added
-      ++ (1 to 50).map(_ => randomBall)    // likewise
-      ++ (1 to 3).map(_ => randomWall)    // likewise
+    (1 to 1).map(_ => randomBumper)       // change the number after "to" to adjust how many bumpers are added
+      ++ (1 to 1).map(_ => randomBall)    // likewise
+      ++ (1 to 1).map(_ => randomWall)    // likewise
       ++ randomQuadrilateral
       ++ boundaryWalls
 
   private var animator: Thread = uninitialized
   private var running: Boolean = false
-
-  // Delete this
-  private var frame: Int = 0
 
   // Picks a random point within the field (used by other "random" methods)
   def randomPoint: Point =
@@ -121,21 +112,6 @@ class Field(width: Int, height: Int) extends JComponent:
     // Draw all the actors
     actors.foreach(paintActor(g, _))
 
-    // Delete this
-    val image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB)
-    val g2 = image.createGraphics()
-    g2.setPaint(Color.WHITE)
-    g2.fillRect(0, 0, width, height)
-    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON)
-    g2.setStroke(new BasicStroke(3))
-    g2.setPaint(Color.BLACK)
-    actors.foreach(paintActor(g2, _))
-    try {
-      ImageIO.write(image, "png", File(f"frame_$frame%04d.png"))
-    } catch
-      case ex => ex.printStackTrace()
-    frame += 1
-
   // Rules for drawing each kind of actor
   private def paintActor(g: Graphics2D, actor: Actor): Unit = actor match
     case Ball(Point(x, y), _) =>
@@ -159,7 +135,7 @@ class Field(width: Int, height: Int) extends JComponent:
   private def findBallImpacts(ball: Ball, time: Double): Seq[Impact] =
     Seq() // replace this with your own code!
     val ballSegment = LineSegment(ball.location, ball.location + ball.velocity * time)
-    val timeToReach: Point => Double = p => (p.x - ball.location.x) / ball.velocity.x
+    val timeToReach: Point => Double = p => (p - ball.location).length / ball.velocity.length
     actors.flatMap(actor => actor match {
       case wall: Wall =>
         ballSegment.intersection(wall.lineSegment) match

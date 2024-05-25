@@ -31,29 +31,9 @@ case class Vector(x: Double, y: Double):
 
 
   // Override toString to return the form "[x, y]"
-
   
-  def *(factor: Double): Vector =
-    Vector(x * factor, y * factor)
-
-  def +(v: Vector): Vector =
-    Vector(x + v.x, y + v.y)
-
-  def +(p: Point): Point =
-    Point(x + p.x, y + p.y)
-
-  def -(v: Vector): Vector =
-    Vector(x - v.x, y - v.y)
-
-  def `unary_-`: Vector =
-    Vector(-x, -y)
-
-  infix def dot(other: Vector) =
-    x * other.x + y * other.y
-
-  override def toString: String =
-    s"[$x, $y]"
-
+  def length: Double =
+    Math.sqrt(x * x + y * y)
   
   /** Projects this vector onto other */
   def projection(other: Vector) =

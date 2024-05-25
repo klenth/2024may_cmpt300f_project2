@@ -13,7 +13,7 @@ class TestField:
     field
 
   @Test
-  def `0_updateActor_no_collisions`(): Unit =
+  def `2_updateActor_no_collisions`(): Unit =
     val field = withActors()
     val zeroBall = Ball(Point(0, 0), Vector(0, 0))
     val constVelocity = Vector(2, 3)
@@ -23,7 +23,7 @@ class TestField:
       withActors(Ball(Point(0, 0), constVelocity)).updateActor(Ball(Point(0, 0), constVelocity), 0.125))
 
   @Test
-  def `1_updateActor_simple_collision`(): Unit =
+  def `3_updateActor_simple_collision`(): Unit =
     val ball1 = Ball(Point(498, 250), Vector(100, 0))
     val wall1 = Wall(LineSegment(Point(500, 0), Point(500, 500)))
 
@@ -38,4 +38,14 @@ class TestField:
     val wall3 = Wall(LineSegment(Point(100, 250), Point(300, 350)))
     assertEquals("Ball moving diagonally bounces off inclined wall", Ball(Point(231, 308), Vector(70, 10)),
       withActors(ball1, ball2, wall3).updateActor(ball2, 0.5))
+  
+  @Test
+  def `3_updateActor_multiple_candidate_collisions`(): Unit =
+    val ball1 = Ball(Point(100, 100), Velocity(-200, 0))
+    val wall1 = Wall(LineSegment(Point(90, 0), Point(Point(90, 200))))
+    val wall2 = Wall(LineSegment(Point(80, 0), Point(Point(80, 200))))
+    assertEquals("Ball impacts closer wall (first in list)", Ball(Point(140, 100), Vector(200, 0)),
+      withActors(wall1, wall2, ball1).updateActor(ball1, 0.25))
+    assertEquals("Ball impacts closer wall (last in list)", Ball(Point(140, 100), Vector(200, 0)),
+      withActors(wall2, wall1, ball1).updateActor(ball1, 0.25))
   

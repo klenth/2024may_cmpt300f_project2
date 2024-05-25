@@ -35,4 +35,49 @@ Add the following to `Vector`, again following the comments:
 When you have these written, run the "Part 2: TestPointVector" test suite and it will run some test cases through your
 `Point` and `Vector` classes.
 
-# Step 1: handle ball motion without collisions
+# Step 2: handle ball motion without collisions
+Now you'll add some code to `Field` to make the balls move. (If you run it as-is, you should see that all the balls just
+stay in place). You might want to look at the code in `Field` in general, but for this step you just need to add some
+code to the `updateActor()` method, that encodes how each actor on the field (walls, bumpers, and balls) will change as
+time passes.
+
+Like all animations, this program operates by time slicing: it draws the current state of everything, then waits a small
+length of time (configurable by the `frameSleep` variable), calculates the new states of all actors, and then draws
+again, continuing this process until the program ends. (Or until the user hits the space bar, which pauses the
+animation.) The `updateActor()` method takes actor and time parameters, and returns the new state of that actor after
+time has passed. (It also has a `lastBounced` parameters, but you should ignore that for now.)
+
+Of the three kinds of actors that have been defined — balls, walls, and bumpers — balls are the only ones that move, so
+`updateActor()` only needs to do anything if the actor is a ball (otherwise it will just return the same actor back,
+signifying that it hasn't changed).
+
+For right now, start by just getting the balls moving, without worrying about whether they have hit any obstacles. The
+formula for this is
+> new location = old location + velocity × time
+
+...which is easily calculated using the operator overloads you defined in the last step.
+
+Fill in `updateActor()` so that, for a ball, it uses the formula above to calculate the new location of the ball (the
+ball's velocity should remain unchanged), and for any other kind of actor, it just returns the actor back. Then run the
+app and check that the balls move! How exciting.
+
+## Testing your code
+Run the "Part 2: TestField" tester. Most of the tests will still fail at this point, but if you've done this correctly,
+the `2_updateActor_no_collisions` test should pass.
+
+# Step 3: simple collisions
+Adding collision detection is harder than you might think, but all the heavy lifting in math has already been coded for
+you (mostly in the `LineSegment` class, that provides methods for checking whether two line segments intersect and
+whether a line segment intersects with a circle). You will need to glue the pieces together by writing Scala code,
+however!
+
+## `findBallImpacts()`
+The `findBallImpacts()` method is intended to detect all collisions that a ball will make with other actors during a
+single time slice (between displaying one frame of the animation and the next). It takes a ball and a time as parameters
+and returns a `Seq[Impact]`. A `Seq` is pretty much the same thing as an `Array`, the main difference being that it is
+immutable; it is much more common to use `Seq`s than `Array`s in Scala. `Impact` is a case class representing a single
+collision, with fields of which actor the ball collided with, what the point of impact was, what the normal vector of
+the surface at that point is (if you're not familiar with normals, this is needed for determining the angle that the
+ball will bounce at), and the time at which the impact occurs.
+
+z

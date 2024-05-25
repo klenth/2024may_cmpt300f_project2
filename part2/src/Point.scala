@@ -12,13 +12,3 @@ case class Point(x: Double, y: Double):
   
   
   // Override toString to return the form "(x, y)"
-  
-  def +(v: Vector): Point =
-    Point(x + v.x, y + v. y)
-
-  def -(p: Point): Vector =
-    Vector(x - p.x, y - p.y)
-
-  override def toString: String =
-    s"($x, $y)"
-    
