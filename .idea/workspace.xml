@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d56b17f-c692-45e8-b181-3b4d68f266da" name="Changes" comment="Added animation.gif">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part1/src/DaysInMonth.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part1/src/DaysInMonth.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part2/Directions.md" beforeDir="false" afterPath="$PROJECT_DIR$/part2/Directions.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part2/src/Field.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/Field.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part2/src/Point.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/Point.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/src/Vector.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/Vector.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/part2/test/TestField.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/test/TestField.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part2/test/TestPointVector.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/test/TestPointVector.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,39 +36,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.DaysInMonth.executor": "Run",
-    "Application.Part 1: DaysInMonth program.executor": "Run",
-    "Application.main.executor": "Run",
-    "Application.main2.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "JUnit.Part 1: TestDaysInMonth.executor": "Run",
-    "JUnit.Part 2: TestField.executor": "Run",
-    "JUnit.Part 2: TestPointVector.executor": "Run",
-    "JUnit.TestDaysInMonth.executor": "Run",
-    "JUnit.TestField.executor": "Run",
-    "JUnit.TestPointVector.executor": "Run",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "jdk.selected.JAVA_MODULE": "openjdk-22",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/kathy/IdeaProjects/2020may_cmpt300f_project2",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.DaysInMonth.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Part 1: DaysInMonth program.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.main2.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;JUnit.Part 1: TestDaysInMonth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Part 2: TestField.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.Part 2: TestPointVector.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestDaysInMonth.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestField.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestPointVector.executor&quot;: &quot;Run&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kathy/IdeaProjects/2020may_cmpt300f_project2&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/part2" />
