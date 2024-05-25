@@ -53,7 +53,7 @@ signifying that it hasn't changed).
 
 For right now, start by just getting the balls moving, without worrying about whether they have hit any obstacles. The
 formula for this is
-> new location = old location + velocity × time
+> `new location = old location + velocity × time`
 
 ...which is easily calculated using the operator overloads you defined in the last step.
 
@@ -65,19 +65,54 @@ app and check that the balls move! How exciting.
 Run the "Part 2: TestField" tester. Most of the tests will still fail at this point, but if you've done this correctly,
 the `2_updateActor_no_collisions` test should pass.
 
-# Step 3: simple collisions
+# Step 3: collisions
 Adding collision detection is harder than you might think, but all the heavy lifting in math has already been coded for
 you (mostly in the `LineSegment` class, that provides methods for checking whether two line segments intersect and
 whether a line segment intersects with a circle). You will need to glue the pieces together by writing Scala code,
 however!
 
-## `findBallImpacts()`
-The `findBallImpacts()` method is intended to detect all collisions that a ball will make with other actors during a
-single time slice (between displaying one frame of the animation and the next). It takes a ball and a time as parameters
-and returns a `Seq[Impact]`. A `Seq` is pretty much the same thing as an `Array`, the main difference being that it is
-immutable; it is much more common to use `Seq`s than `Array`s in Scala. `Impact` is a case class representing a single
-collision, with fields of which actor the ball collided with, what the point of impact was, what the normal vector of
-the surface at that point is (if you're not familiar with normals, this is needed for determining the angle that the
-ball will bounce at), and the time at which the impact occurs.
+## `ballImpact()` method
+The `ballImpact()` method is used to check whether a ball will impact on actor during a slice of time (between one frame of animation and the next), returning either `None` or a `Some(Impact)`. It takes the ball in question, an actor, and a length of time as parameters. The `Impact` that it may return consists of the actor impacted on (that would just be the `actor` parameter), the point of impact, the surface normal vector of the impact (which is needed to calculate how the ball will bounce), and the time at which the impact will occur (a number between `0` and the `time` parameter).
 
-z
+Fill this method in by doing the following:
+1. Compute a `LineSegemnt` of the ball's motion during this slice of time: the first point is the ball's current location, and the second is the ball's location if it were allowed to move unchecked (using the same formula as before, `new location = old location + velocity × time`). You will use this `LineSegment`'s intersect methods to check for a collision with the actor.
+2. Match on the actor. Depending on whether it's a `Wall` or a `Bumper`, check whether the `LineSegment` you computed for the ball intersects with the wall's `LineSegment`' or the bumper's `Circle`.
+3. If there is an intersection (the intersect method returns `Some(Point)`), then you will need to compute an `Impact` for this collision. You already know the actor impacted on and the point of impact; for the normal, when the actor is a `Wall` you can use its `LineSegment`'s `normal` method, and when it's a `Bumper`, the normal is just `impact point - circle center point`. For the time of collision, use `(impact point - ball initial point).length / (ball velocity).length`.
+4. Your method should return `None` if there was no impact point, and a `Some(Impact)` otherwise.
+
+## `findBallImpacts()` method
+The `findBallImpacts()` method is intended to detect all collisions that a ball will make with other actors during a
+single time slice. It takes a ball and a time as parameters and returns a `Seq[Impact]`. A `Seq` is pretty much the same thing as an `Array`, the main difference being that it is immutable; it is much more common to use `Seq`s than `Array`s in Scala. Since you've already coded the `ballImpact()` method, this will be pretty easy: you just need to map each `Actor` in the field's `actors` to its `Impact` with the ball, if any.
+
+You don't want to use your basic `actors.map()` method, though: since on any given time slice, the ball will not be impacting on most of the actors, using `actors.map()` would give you a ton of `None`s:
+> Using `actors.map()`:
+> 
+> `    [None, None, None, Some(Impact(...)), None, None, None, Some(Impact(...))]`
+
+Instead, you should use `actors.flatMap()`, which is called the same way but flattens it down to just the ones that contain values:
+> Using `actors.flatMap():`
+>
+> `    [Impact(...), Impact(...)]`
+
+
+Fill in the body of `findBallImpacts()` call `actors.flatMap()`, mapping the field actors to the ball's impacts on them. (This method should be very short!)
+
+## `findNextBallImpact()` method
+The method you just implemented, `findBallImpacts()`, finds *all* impacts the ball could make with other actors during the current time slice. Most of the time there will be zero of these, sometimes there will be one — and occasionally there could be more than one, for example if there are two walls that meet in a corner and the ball is about to cross them there. The point of this method is to find the *first* impact that the ball will make (the one with the smallest time value).
+
+Another job that `findNextBallImpact()` has is to make sure that ball isn't double-colliding on the same actor immediately. When the ball bounces off a wall, we will set its location to the point of impact on the wall, but we don't want it to falsely detect that repositioning as a second collision. The `findNextBallImpact()` method takes an `Option[Actor]` as parameter, of the actor that the ball has immediately just bounced off of (if any); your code will need to make sure that it doesn't register another impact on this same actor.
+
+Fill in `findNextBallImpact()` to do the following:
+1) Call `findBallImpacts()` to get a `Seq` of all impacts the ball could make during this time slice.
+2) Use `.filter()` to filter out any impacts on the `lastBounced` actor, if there is one (the easiest way to do this is to use `lastBounced.contains()` to check whether it holds the current actor we're deciding whether to filter).
+3) Sort the impacts by time (`.sorted(Ordering.by(...))`).
+4) Return the *first* `Impact` if there is one; `.headOption` will do this for you (it returns a `Some` of the first element in the `Seq` if there is one, otherwise `None`).
+
+## `updateActor()` again
+You're nearly there! Now that you have code in place to detect the next impact (if any), you just need to incorporate this in `updateActor()`. Your new version should, when the actor is a ball:
+1. Check for an impact by calling `findNextBallImpact()`.
+   1. If there is none, then proceed as before (`new location = old location + velocity × time`).
+   2. If there is an impact, then you will need to bounce the ball. Make a new `Ball` object representing the ball's state at the instant of the bounce: its new location should be the point of impact and its velocity should be the result of reflecting the ball's velocity about the impact normal (use the `Vector.reflect()` method). Then recursively call `updateActor()` again with this new ball so that we can check for another impact during the same time slice: use `time - impact time` for the new time value, and `Some(impacted actor)` for `lastBounced` so that we don't double-bounce immediately.
+
+## Testing your code
+If all the above is done correctly, then all tests from "Part 2: TestField" should now pass. To admire your work, you can increase the numbers of balls, walls, and bumpers in the field by adjusting the initialization of `actors` near the top of `Field`.

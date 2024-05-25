@@ -23,8 +23,8 @@ class Field(width: Int, height: Int) extends JComponent:
     (1 to 1).map(_ => randomBumper)       // change the number after "to" to adjust how many bumpers are added
       ++ (1 to 1).map(_ => randomBall)    // likewise
       ++ (1 to 1).map(_ => randomWall)    // likewise
-      ++ randomQuadrilateral
-      ++ boundaryWalls
+      ++ randomQuadrilateral              // a random quadrilateral connecting the four sides of the field
+      ++ boundaryWalls                    // walls on the four sides of the field so that balls don't escape
 
   private var animator: Thread = uninitialized
   private var running: Boolean = false
@@ -36,7 +36,7 @@ class Field(width: Int, height: Int) extends JComponent:
   // Generate a random ball somewhere in the field with random speed and direction
   def randomBall: Actor =
     val speed = 100 + random.nextDouble(200)
-    Ball(randomPoint, Vector(speed, 0).rotate(Math.random() * 2 * Math.PI))
+    Ball(randomPoint, Vector(speed, 0).rotate(random.nextDouble(2 * Math.PI)))
 
   // Generates a randomly placed wall
   def randomWall: Actor =
@@ -44,10 +44,10 @@ class Field(width: Int, height: Int) extends JComponent:
 
   // Generates a random quadrilateral, with one vertex each on the four sides of the field
   def randomQuadrilateral: Seq[Actor] =
-    val top = Point(random.nextDouble() * width, 0)
-    val right = Point(width - 1, random.nextDouble() * height)
-    val bottom = Point(random.nextDouble() * width, height - 1)
-    val left = Point(0, random.nextDouble() * height)
+    val top = Point(random.nextDouble(width), 0)
+    val right = Point(width - 1, random.nextDouble(height))
+    val bottom = Point(random.nextDouble(width), height - 1)
+    val left = Point(0, random.nextDouble(height))
     Seq(
       Wall(LineSegment(top, right)),
       Wall(LineSegment(bottom, right)),
@@ -72,7 +72,7 @@ class Field(width: Int, height: Int) extends JComponent:
   def randomBumper: Bumper =
     Bumper(Circle(
       randomPoint,
-      random.nextDouble() * width / 3 + 20
+      random.nextDouble(width / 3) + 20
     ))
 
   // Starts the animation
@@ -130,33 +130,18 @@ class Field(width: Int, height: Int) extends JComponent:
     stopwatch.reset()
     repaint()
 
+  /** Returns the impact that a ball makes on an actor during a slice of time, if any */
+  private def ballImpact(ball: Ball, actor: Actor, time: Double): Option[Impact] =
+    None  // replace this with your own code!
+
   /** Returns all impacts that a ball would make during the next slice of time while moving at its current
       velocity (an empty Seq if there will be none) */
   private def findBallImpacts(ball: Ball, time: Double): Seq[Impact] =
     Seq() // replace this with your own code!
-    val ballSegment = LineSegment(ball.location, ball.location + ball.velocity * time)
-    val timeToReach: Point => Double = p => (p - ball.location).length / ball.velocity.length
-    actors.flatMap(actor => actor match {
-      case wall: Wall =>
-        ballSegment.intersection(wall.lineSegment) match
-          case Some(p) => Some(Impact(wall, p, wall.lineSegment.normal, timeToReach(p)))
-          case _ => None
-
-      case bumper: Bumper =>
-        ballSegment.intersection(bumper.circle) match
-          case Some(p) => Some(Impact(bumper, p, p - bumper.circle.center, timeToReach(p)))
-          case _ => None
-
-      case _ => None
-    })
 
   /** Returns the first impact that the ball will make during the next slice of time, or None if there will be none */
   private def findNextBallImpact(ball: Ball, time: Double, lastBounced: Option[Actor] = None): Option[Impact] =
-    None // Replace this with your own code
-    findBallImpacts(ball, time)
-      .filterNot(impact => lastBounced.contains(impact.impactedActor))
-      .sorted(Ordering.by(_.time))
-      .headOption
+    None // replace this with your own code!
 
   /**
    * Updates an actor for the next time.
@@ -172,18 +157,9 @@ class Field(width: Int, height: Int) extends JComponent:
    *       new velocity: the result of reflecting the velocity around the impact surface normal vector
    *       ***Then call updateActor() again because the ball could impact something else during the same time slice!***
    *       (Balls tend to escape at corners if you forget to do this!) Pass in the actor that was impacted to the
-   *       next updateActor() call so that we don't inadvertantly re-bounce off the same surface immediately.
+   *       next updateActor() call so that we don't inadvertently re-bounce off the same surface immediately.
    *   - If any other kind of actor, just return the same actor again (in the current version, only balls move)
    */
-  @tailrec
   final def updateActor(actor: Actor, time: Double, lastBounced: Option[Actor] = None): Actor =
-    actor // Replace this with your own code
-    actor match
-      case ball: Ball => findNextBallImpact(ball, time, lastBounced) match
-        case Some(Impact(impactedActor, impactPoint, impactNormal, impactTime)) =>
-          val bouncedBall = Ball(impactPoint, ball.velocity.reflect(impactNormal))
-          updateActor(bouncedBall, time - impactTime, Some(impactedActor))
-        case None =>
-          ball.copy(location = ball.location + ball.velocity * time)
-      case actor => actor
+    actor // replace this with your own code!
 

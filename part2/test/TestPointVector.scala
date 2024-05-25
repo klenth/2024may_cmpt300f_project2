@@ -52,3 +52,4 @@ class TestPointVector:
   @Test
   def vectorToString(): Unit =
     assertEquals("[3.5, -4.5]", Vector(3.5, -4.5).toString)
+    
