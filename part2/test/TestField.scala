@@ -39,12 +39,12 @@ class TestField:
     assertEquals("Ball moving diagonally bounces off inclined wall", Ball(Point(231, 308), Vector(70, 10)),
       withActors(ball1, ball2, wall3).updateActor(ball2, 0.5))
 
-@Test
-def `3_updateActor_multiple_candidate_collisions`(): Unit =
-  val ball1 = Ball(Point(100, 100), Vector(-200, 0))
-  val wall1 = Wall(LineSegment(Point(90, 0), Point(90, 200)))
-  val wall2 = Wall(LineSegment(Point(80, 0), Point(80, 200)))
-  assertEquals("Ball impacts closer wall (first in list)", Ball(Point(130, 100), Vector(200, 0)),
-    withActors(wall1, wall2, ball1).updateActor(ball1, 0.25))
-  assertEquals("Ball impacts closer wall (last in list)", Ball(Point(130, 100), Vector(200, 0)),
-    withActors(wall2, wall1, ball1).updateActor(ball1, 0.25))
+  @Test
+  def `3_updateActor_multiple_candidate_collisions`(): Unit =
+    val ball1 = Ball(Point(100, 100), Vector(-200, 0))
+    val wall1 = Wall(LineSegment(Point(90, 0), Point(90, 200)))
+    val wall2 = Wall(LineSegment(Point(80, 0), Point(80, 200)))
+    assertEquals("Ball impacts closer wall (first in list)", Ball(Point(130, 100), Vector(200, 0)),
+      withActors(wall1, wall2, ball1).updateActor(ball1, 0.25))
+    assertEquals("Ball impacts closer wall (last in list)", Ball(Point(130, 100), Vector(200, 0)),
+      withActors(wall2, wall1, ball1).updateActor(ball1, 0.25))
