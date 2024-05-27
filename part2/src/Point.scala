@@ -5,8 +5,12 @@ case class Point(x: Double, y: Double) {
 
   // Operator overload: Point + Vector => Point
   // (x, y) + [a, b] = (x + a, y + b)
+  
+  
+  // Operator overload: Point - Vector => Point
+  // (x, y) - [a, b] = (x - a, y - b)
 
-
+  
   // Operator overload: Point - Point => Vector
   // (x, y) - (z, w) = [x - z, y - w]
 

@@ -18,6 +18,7 @@ there will be lots of compile errors!
 Add the following to `Point`, as the comments in the file instruct:
 - an overload of the `Point + Vector => Point` operator (adds a `Point` and a `Vector` and returns a `Point`)
 - an overload of the `Point - Vector => Point` operator (subtracts a `Vector` from a `Point`)
+- an overload of the `Point - Point => Vector` operator (subtracts two `Point`s, resulting in a `Vector`)
 - an override of `toString` so that points are printed in `(x, y)` form
 
 Add the following to `Vector`, again following the comments:

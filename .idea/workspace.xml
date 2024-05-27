@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d56b17f-c692-45e8-b181-3b4d68f266da" name="Changes" comment="Added animation.gif">
-      <change beforePath="$PROJECT_DIR$/part2/Directions.md" beforeDir="false" afterPath="$PROJECT_DIR$/part2/Directions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/src/Field.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/Field.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/src/Point.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/src/Point.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/test/TestField.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/test/TestField.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/part2/test/TestPointVector.scala" beforeDir="false" afterPath="$PROJECT_DIR$/part2/test/TestPointVector.scala" afterDir="false" />
+    <list default="true" id="4d56b17f-c692-45e8-b181-3b4d68f266da" name="Changes" comment="Added JUnit jars">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +53,7 @@
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-22&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/kathy/IdeaProjects/2020may_cmpt300f_project2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/kathy/tmp/grading/cmpt300f/project1&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -159,6 +155,9 @@
       <workItem from="1716081108473" duration="8670000" />
       <workItem from="1716421607982" duration="74000" />
       <workItem from="1716421686708" duration="45412000" />
+      <workItem from="1716729089079" duration="60000" />
+      <workItem from="1716759445809" duration="1223000" />
+      <workItem from="1716820248875" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="Project prototyped">
       <option name="closed" value="true" />
@@ -176,7 +175,31 @@
       <option name="project" value="LOCAL" />
       <updated>1716586846083</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finished writing directions for part 2; deleted solution code">
+      <option name="closed" value="true" />
+      <created>1716654588329</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716654588329</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added directions for part 1">
+      <option name="closed" value="true" />
+      <created>1716654712952</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716654712952</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added JUnit jars">
+      <option name="closed" value="true" />
+      <created>1716759464673</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1716759464673</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -185,6 +208,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Project prototyped" />
     <MESSAGE value="Added animation.gif" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added animation.gif" />
+    <MESSAGE value="Finished writing directions for part 2; deleted solution code" />
+    <MESSAGE value="Added directions for part 1" />
+    <MESSAGE value="Added JUnit jars" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added JUnit jars" />
   </component>
 </project>
